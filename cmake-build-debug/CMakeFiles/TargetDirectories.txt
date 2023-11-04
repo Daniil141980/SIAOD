@@ -1,0 +1,3 @@
+C:/Users/Danii/CLionProjects/siaodGit/cmake-build-debug/CMakeFiles/siaodGit.dir
+C:/Users/Danii/CLionProjects/siaodGit/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Danii/CLionProjects/siaodGit/cmake-build-debug/CMakeFiles/rebuild_cache.dir
