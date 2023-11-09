@@ -5,18 +5,19 @@ using namespace std;
 
 struct Node {
     string data;
-    Node *rc = nullptr;
-    Node *lc = nullptr;
+    Node *right = nullptr;
+    Node *left = nullptr;
 
 };
 
-class Tree {
+class BinTree {
 private:
     Node *root;
-    int deepth = -1;
+    int deep = -1;
+    int find = -1;
 public:
 
-    Tree(string rootData) {
+    BinTree(string rootData) {
         this->root = new Node;
         root->data = rootData;
     }
@@ -28,18 +29,18 @@ public:
         Node *currentNode = this->root;
         while (true) {
             if (newElement->data > currentNode->data) {
-                if (currentNode->rc == nullptr) {
-                    currentNode->rc = newElement;
+                if (currentNode->right == nullptr) {
+                    currentNode->right = newElement;
                     return;
                 } else {
-                    currentNode = currentNode->rc;
+                    currentNode = currentNode->right;
                 }
             } else if (newElement->data < currentNode->data) {
-                if (currentNode->lc == nullptr) {
-                    currentNode->lc = newElement;
+                if (currentNode->left == nullptr) {
+                    currentNode->left = newElement;
                     return;
                 } else {
-                    currentNode = currentNode->lc;
+                    currentNode = currentNode->left;
                 }
             } else {
                 return;
@@ -47,23 +48,43 @@ public:
         }
     }
 
-
-    void symmetricalTravers(Node *root) {
+    void preOrder(Node *root) {
         if (root) {
-            symmetricalTravers(root->lc);
             cout << root->data << " ";
-            symmetricalTravers(root->rc);
+            preOrder(root->left);
+            preOrder(root->right);
         }
     }
 
-    void maxDeepth(Node *root, int deepth) {
+    void inOrder(Node *root) {
         if (root) {
-            maxDeepth(root->lc, deepth + 1);
-            maxDeepth(root->rc, deepth + 1);
-            this->deepth = max(deepth, this->deepth);
+            inOrder(root->left);
+            cout << root->data << " ";
+            inOrder(root->right);
+        }
+    }
+
+    void findDeep(Node *root, int deep, string value) {
+        if (root) {
+            if (root->data == value) {
+                find = deep;
+            }
+            findDeep(root->left, deep + 1, value);
+            findDeep(root->right, deep + 1, value);
         }
         if (root == this->root) {
-            cout << "\nВысота дерева: " << this->deepth << endl;
+            cout << "Длина пути: " << this->find << endl;
+        }
+    }
+
+    void maxDeep(Node *root, int deep) {
+        if (root) {
+            maxDeep(root->left, deep + 1);
+            maxDeep(root->right, deep + 1);
+            this->deep = max(deep, this->deep);
+        }
+        if (root == this->root) {
+            cout << "Высота дерева: " << this->deep << endl;
         }
     }
 
@@ -77,7 +98,7 @@ int main() {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
 
-    Tree *tree = new Tree("d");
+    BinTree *tree = new BinTree("d");
     tree->addElement("e");
     tree->addElement("b");
     tree->addElement("c");
@@ -85,8 +106,11 @@ int main() {
     tree->addElement("r");
     tree->addElement("a");
     tree->addElement("g");
-
-
-    tree->symmetricalTravers(tree->getRoot());
-    tree->maxDeepth(tree->getRoot(), 1);
+    tree->preOrder(tree->getRoot());
+    cout << endl;
+    tree->inOrder(tree->getRoot());
+    cout << endl;
+    string val = "a";
+    tree->findDeep(tree->getRoot(), 1, val);
+    tree->maxDeep(tree->getRoot(), 1);
 }
