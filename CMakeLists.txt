@@ -4,4 +4,4 @@ project(siaodGit)
 set(CMAKE_CXX_STANDARD 17)
 
 add_executable(siaodGit
-        5/5.cpp)
+        6/6.cpp)

@@ -49,11 +49,11 @@ cmake_ninja_workdir = C$:/Users/Danii/CLionProjects/siaodGit/cmake-build-debug/
 
 build cmake_object_order_depends_target_siaodGit: phony || CMakeFiles/siaodGit.dir
 
-build CMakeFiles/siaodGit.dir/5/5.cpp.obj: CXX_COMPILER__siaodGit_unscanned_Debug C$:/Users/Danii/CLionProjects/siaodGit/5/5.cpp || cmake_object_order_depends_target_siaodGit
-  DEP_FILE = CMakeFiles\siaodGit.dir\5\5.cpp.obj.d
+build CMakeFiles/siaodGit.dir/6/6.cpp.obj: CXX_COMPILER__siaodGit_unscanned_Debug C$:/Users/Danii/CLionProjects/siaodGit/6/6.cpp || cmake_object_order_depends_target_siaodGit
+  DEP_FILE = CMakeFiles\siaodGit.dir\6\6.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\siaodGit.dir
-  OBJECT_FILE_DIR = CMakeFiles\siaodGit.dir\5
+  OBJECT_FILE_DIR = CMakeFiles\siaodGit.dir\6
 
 
 # =============================================================================
@@ -63,7 +63,7 @@ build CMakeFiles/siaodGit.dir/5/5.cpp.obj: CXX_COMPILER__siaodGit_unscanned_Debu
 #############################################
 # Link the executable siaodGit.exe
 
-build siaodGit.exe: CXX_EXECUTABLE_LINKER__siaodGit_Debug CMakeFiles/siaodGit.dir/5/5.cpp.obj
+build siaodGit.exe: CXX_EXECUTABLE_LINKER__siaodGit_Debug CMakeFiles/siaodGit.dir/6/6.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\siaodGit.dir
